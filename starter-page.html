@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Graphic Design & Frontend Developer</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-[#0B0B0C] text-white min-h-screen">
+
+  <!-- Top Bar -->
+  <header class="border-b border-neutral-800">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <h1 class="text-xl font-semibold tracking-tight">Customize Your Order</h1>
+      <span class="text-sm text-neutral-400">Package: <strong class="text-white">Premium</strong></span>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-6 py-10 grid grid-cols-1 lg:grid-cols-3 gap-10">
+
+    <!-- Left: Form -->
+    <section class="lg:col-span-2 space-y-10">
+
+      <!-- Step 1 -->
+      <div class="bg-neutral-900/60 border border-neutral-800 rounded-2xl p-6">
+        <h2 class="text-lg font-semibold mb-4">1. Brand Details</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <input class="bg-neutral-800 rounded-xl p-3 focus:outline-none" placeholder="Brand name" />
+          <input class="bg-neutral-800 rounded-xl p-3 focus:outline-none" placeholder="Slogan (optional)" />
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="bg-neutral-900/60 border border-neutral-800 rounded-2xl p-6">
+        <h2 class="text-lg font-semibold mb-4">2. Industry</h2>
+        <input class="bg-neutral-800 rounded-xl p-3 w-full focus:outline-none" placeholder="e.g. Technology, Fashion, Food" />
+      </div>
+
+      <!-- Step 3 -->
+      <div class="bg-neutral-900/60 border border-neutral-800 rounded-2xl p-6">
+        <h2 class="text-lg font-semibold mb-4">3. Style Direction</h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+          <button class="option">Minimal</button>
+          <button class="option">Modern</button>
+          <button class="option">Bold</button>
+          <button class="option">Luxury</button>
+        </div>
+      </div>
+
+      <!-- Step 4 -->
+      <div class="bg-neutral-900/60 border border-neutral-800 rounded-2xl p-6">
+        <h2 class="text-lg font-semibold mb-4">4. Color Preferences</h2>
+        <input class="bg-neutral-800 rounded-xl p-3 w-full focus:outline-none" placeholder="Black, White, Gold, etc." />
+      </div>
+
+      <!-- Step 5 -->
+      <div class="bg-neutral-900/60 border border-neutral-800 rounded-2xl p-6">
+        <h2 class="text-lg font-semibold mb-4">5. Additional Notes</h2>
+        <textarea rows="4" class="bg-neutral-800 rounded-xl p-3 w-full focus:outline-none" placeholder="Anything we should know?"></textarea>
+      </div>
+
+    </section>
+
+    <!-- Right: Summary -->
+    <aside class="bg-neutral-900/60 border border-neutral-800 rounded-2xl p-6 h-fit sticky top-10">
+      <!-- Pricing Options -->
+      <div class="mb-6">
+        <h3 class="text-lg font-semibold mb-3">Choose Package</h3>
+        <div class="space-y-3">
+          <button data-price="55" class="price-option w-full flex justify-between items-center bg-neutral-800 rounded-xl px-4 py-3 text-sm">
+            <span>Starter</span><span>$55</span>
+          </button>
+          <button data-price="120" class="price-option w-full flex justify-between items-center bg-neutral-800 rounded-xl px-4 py-3 text-sm">
+            <span>Standard</span><span>$120</span>
+          </button>
+          <button data-price="250" class="price-option w-full flex justify-between items-center bg-neutral-800 rounded-xl px-4 py-3 text-sm ring ring-white">
+            <span>Premium</span><span>$250</span>
+          </button>
+        </div>
+      </div>
+      <h3 class="text-lg font-semibold mb-4">Order Summary</h3>
+
+      <ul class="space-y-3 text-sm text-neutral-300">
+        <li class="flex justify-between"><span>Logo Design</span><span>✔</span></li>
+        <li class="flex justify-between"><span>Brand Identity</span><span>✔</span></li>
+        <li class="flex justify-between"><span>Social Media Kit</span><span>✔</span></li>
+        <li class="flex justify-between"><span>Source Files</span><span>✔</span></li>
+        <li class="flex justify-between"><span>Priority Support</span><span>✔</span></li>
+      </ul>
+
+      <div class="border-t border-neutral-800 my-6"></div>
+
+      <div class="flex justify-between text-base mb-4">
+        <span>Total</span>
+        <span id="totalPrice" class="font-semibold">$250</span>
+      </div>
+
+      <button onclick="goCheckout()" class="w-full bg-white text-black py-3 rounded-xl font-semibold hover:opacity-90 transition">
+        Continue to Checkout
+      </button>
+    </aside>
+
+  </main>
+
+  <script>
+    document.querySelectorAll('.option').forEach(btn => {
+      btn.classList.add('bg-neutral-800','rounded-xl','py-2','text-sm');
+      btn.onclick = () => {
+        document.querySelectorAll('.option').forEach(b => b.classList.remove('ring','ring-white'));
+        btn.classList.add('ring','ring-white');
+      };
+    });
+
+    function goCheckout() {
+      alert('Package selected. Redirecting to checkout…');
+    }
+
+    document.querySelectorAll('.price-option').forEach(btn => {
+      btn.onclick = () => {
+        document.querySelectorAll('.price-option').forEach(b => b.classList.remove('ring','ring-white'));
+        btn.classList.add('ring','ring-white');
+        document.getElementById('totalPrice').innerText = '$' + btn.dataset.price;
+      };
+    });
+  </script>
+
+</body>
+</html>
