@@ -39,6 +39,6 @@ I combine **a designer’s eye for aesthetics** with **a developer’s mind for 
 ### • Let’s Connect
 → **Email:** [zaki4588@gmail.com](mailto:zaki4588@gmail.com)  
 → **LinkedIn:** [ZakyK](https://www.linkedin.com/in/zakyk9/)  
-→ **Portfolio:** [Visit My Site](http://zakyk-portfolio.vercel.app/)
+→ **Portfolio:** [Visit My Site](https://zakyksite.vercel.app/)
 
 ---
